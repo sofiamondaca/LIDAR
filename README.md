@@ -5,8 +5,6 @@
 <br>18212226 </h1>
 </div>
 
-***
-
 ![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/blob/main/images/cooltext419209209399426.png)
 
 * Proviene del acronimo en ingles de **Li**ght **d**etection **a**nd **r**anging 
@@ -17,4 +15,11 @@
 * El sensor crea una representacion 3D del espacio escaneado en cuestion
 * Es utilizado primariamente en la industria automotriz, infraestructura, robotica, cartografica, entre otras.
 * Existen diversos modelos para un sensor LiDAR, he aqui algunos ejemplos:
+
+![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/blob/main/images/182407-10533478.jpg)
+![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/blob/main/images/IM0068358.png)
+
+<div></div>
+
+# ¿Como se compara un sensor LiDAR a una camara?
 
