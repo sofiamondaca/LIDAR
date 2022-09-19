@@ -27,6 +27,7 @@
 <p>Un LiDAR consiste de un foco emisor de rayos laser infrarrojos y de un lente receptor infrarrojo capaz de ver los laser. Cuando los rayos laser impactan sobre un objeto, se **reflejan** o **rebotan**. Estas rayos que vuelven reflejados son detectados por el lente, y asi el procesador del sensor obtiene una nube de puntos del entorno en donde conoce la posicion precisa en el espacio y la distancia entre los puntos. Finalmente, procesa una imagen tridimensional en tiempo real.</p>
 
 <div></div>
+
 # ¿Como se compara un sensor LiDAR a una camara?
 
 | **Sensor LiDAR**                                                                                 | **Sistema de camaras**                                              |
