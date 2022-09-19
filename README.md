@@ -15,6 +15,7 @@
 * El sensor crea una representacion 3D del espacio escaneado en cuestion
 * Es utilizado primariamente en la industria automotriz, infraestructura, robotica, cartografica, entre otras.
     * Actualmente son los sensores mas vitales para los autos que se conducen sin mano humana, es decir, los autos automaticos
+* Su precio varia desde los 900$ MXN a 3000$ MXN
 * Existen diversos modelos para un sensor LiDAR, he aqui algunos ejemplos:
 
 ![Sensor LiDAR](images/182407-10533478.jpg)
@@ -40,3 +41,12 @@
 <div></div>
 
 ![RS485](images/cooltext419209274547449.png)
+
+* Es un estandar de comunicaciones tambien conocido como **EIA/TIA-485**
+* Su principal funcion es transportar una señal a traves de dos cables
+    * Uno de los cables transmite la señal original
+    * El otro su copia inversa
+* Este metodo se conoce como "intercambio de datos bidireccional" y ofrece una gran resistencia a las interferencias en modo comun
+* Sin embargo, los dispositivos RS-485 no pueden transmitir y recibir datos al mismo tiempo
+    * Es necesario adoptar cierto comportamiento para evitar colision de paquetes de datos
+* Es generalmente utilizado en cables de partrenzados
