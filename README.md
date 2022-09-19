@@ -5,7 +5,7 @@
 <br>18212226 </h1>
 </div>
 
-![Sensor LiDAR](images/cooltext419209209399426.png)
+![Sensor LiDAR](images/cooltext419209209399426.png "Sensor LiDAR giratorio")
 
 * Proviene del acronimo en ingles de **Li**ght **d**etection **a**nd **r**anging 
     * Significa "deteccion de luz y distancias"
@@ -14,6 +14,7 @@
     * Estas mediciones se realizan por medio de un laser pulsado que es seguro para la vista humana
 * El sensor crea una representacion 3D del espacio escaneado en cuestion
 * Es utilizado primariamente en la industria automotriz, infraestructura, robotica, cartografica, entre otras.
+    * Actualmente son los sensores mas vitales para los autos que se conducen sin mano humana, es decir, los autos automaticos
 * Existen diversos modelos para un sensor LiDAR, he aqui algunos ejemplos:
 
 ![Sensor LiDAR](images/182407-10533478.jpg)
@@ -21,5 +22,15 @@
 
 <div></div>
 
+# ¿Como funciona un sensor LiDAR?
+
+<p>Un LiDAR consiste de un foco emisor de rayos laser infrarrojos y de un lente receptor infrarrojo capaz de ver los laser. Cuando los rayos laser impactan sobre un objeto, se **reflejan** o **rebotan**. Estas rayos que vuelven reflejados son detectados por el lente, y asi el procesador del sensor obtiene una nube de puntos del entorno en donde conoce la posicion precisa en el espacio y la distancia entre los puntos. Finalmente, procesa una imagen tridimensional en tiempo real.</p>
+
+<div></div>
 # ¿Como se compara un sensor LiDAR a una camara?
 
+| **Sensor LiDAR**                                                                                 | **Sistema de camaras**                                              |
+|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| "Observa" en 3D a traves de mapas en 3D de alta resolucion dandole una gran ventaja en presicion | Producen imagenes 2D del ambiente a su alrededor                    |
+| Produce medidas exactas                                                                          | Tienen que asumir la distancia de un objeto                         |
+| Tiene su propia fuente de luz, por lo que puede "ver" en cualquier condicion luminosa            | Son dependientes de la iluminacion y otras condiciones del ambiente |
