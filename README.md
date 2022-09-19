@@ -16,7 +16,7 @@
 * Es utilizado primariamente en la industria automotriz, infraestructura, robotica, cartografica, entre otras.
 * Existen diversos modelos para un sensor LiDAR, he aqui algunos ejemplos:
 
-![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/blob/main/images/182407-10533478.jpg)
+![Sensor LiDAR](images/182407-10533478.jpg)
 ![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/blob/main/images/IM0068358.png)
 
 <div></div>
