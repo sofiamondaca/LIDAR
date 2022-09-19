@@ -5,7 +5,7 @@
 <br>18212226 </h1>
 </div>
 
-![Sensor LiDAR](https://github.com/sofiamondaca/LIDAR/images/cooltext419209209399426.png)
+![Sensor LiDAR](images/cooltext419209209399426.png)
 
 * Proviene del acronimo en ingles de **Li**ght **d**etection **a**nd **r**anging 
     * Significa "deteccion de luz y distancias"
