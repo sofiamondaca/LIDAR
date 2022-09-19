@@ -49,4 +49,25 @@
 * Este metodo se conoce como "intercambio de datos bidireccional" y ofrece una gran resistencia a las interferencias en modo comun
 * Sin embargo, los dispositivos RS-485 no pueden transmitir y recibir datos al mismo tiempo
     * Es necesario adoptar cierto comportamiento para evitar colision de paquetes de datos
+
+![RS485](images/aaa.png)
+
+<div></div>
+
+# Caracteristicas y limitaciones del RS-485
+
+* La longitud maxima del cable utilizado en comunicaciones RS-485 es de 1200 metros
+* Es necesario que los dispositivos del sistema establezcan un formato comun para la transmision de los paquetes de datos
 * Es generalmente utilizado en cables de partrenzados
+
+<div></div>
+
+# RS-485 vs RS-232
+
+Los estandares RS-485 y RS-232 proporcionan soluciones para transmitir datos en largas distancias, sin embargo, las ampliaciones del RS-232 eventualmente dieron el nacimiento de RS-485, por lo que la siguiente tabla ofrece una comparacion entre los dos estandares.
+
+| **Sensor LiDAR**                                                                                 | **Sistema de camaras**                                              |
+|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| "Observa" en 3D a traves de mapas en 3D de alta resolucion dandole una gran ventaja en presicion | Producen imagenes 2D del ambiente a su alrededor                    |
+| Produce medidas exactas                                                                          | Tienen que asumir la distancia de un objeto                         |
+| Tiene su propia fuente de luz, por lo que puede "ver" en cualquier condicion luminosa            | Son dependientes de la iluminacion y otras condiciones del ambiente |
