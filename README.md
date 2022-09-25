@@ -170,7 +170,7 @@ class LaserSensor:
 ```
 
 **Plano real**
-
+![Plano real](images/plano.png)
 <div></div>
 
 ![RS485](images/cooltext419209274547449.png)
