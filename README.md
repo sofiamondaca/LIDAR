@@ -37,6 +37,139 @@
 | Produce medidas exactas                                                                          | Tienen que asumir la distancia de un objeto                         |
 | Tiene su propia fuente de luz, por lo que puede "ver" en cualquier condicion luminosa            | Son dependientes de la iluminacion y otras condiciones del ambiente |
 
+# Simulador del sensor con Python
+
+![Simulador](images/simulador.gif)
+
+**main.py**
+```
+
+import env, sensor
+import pygame
+
+
+environment = env.buildEnvironment((600,1200))
+environment.originalMap = environment.map.copy()
+laser = sensor.LaserSensor(200, environment.originalMap, uncertainty=(0.5,0.01))
+environment.map.fill((0,0,0))
+environment.infomap = environment.map.copy()
+
+running = True
+
+while running:
+    sensorON = False
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running=False
+        if pygame.mouse.get_focused():
+            sensorON = True
+        elif not pygame.mouse.get_focused():
+            sensorON = False
+    if sensorON:
+        position=pygame.mouse.get_pos()
+        laser.position = position
+        sensor_data = laser.sense_obstacles()
+        environment.dataStorage(sensor_data)
+        environment.show_sensorData()
+    environment.map.blit(environment.infomap,(0,0))
+    pygame.display.update()
+```
+**env.py**
+```
+import math
+import pygame
+
+class buildEnvironment:
+    def __init__(self, MapDimentions):
+        pygame.init()
+        self.pointCloud = []
+        self.externalMap=pygame.image.load('plano.png')
+        self.maph, self.mapw = MapDimentions
+        self.MapWindowName = 'RRT path planning'
+        pygame.display.set_caption(self.MapWindowName)
+        self.map = pygame.display.set_mode((self.mapw,self.maph))
+        self.map.blit(self.externalMap,(0,0))
+
+        self.black = (0,0,0)
+        self.grey = (70,70,70)
+        self.Blue = (0,0,255)
+        self.Green = (0,255,0)
+        self.Red = (255, 0, 0)
+        self.white = (255, 255, 255)
+
+    def AD2pos(self,distance,angle,robotPosition):
+        x = distance * math.cos(angle)+robotPosition[0]
+        y = -distance * math.sin(angle)+robotPosition[1]
+        return (int(x),int(y))
+
+    def dataStorage(self,data):
+        print(len(self.pointCloud))
+        if data!=False:
+            for element in data:
+                point = self.AD2pos(element[0].element[1],element[2])
+                if point not in self.pointCloud:
+                    self.pointCloud.append(point)
+
+    def show_sensorData(self):
+        self.infomap=self.map.copy()
+        for point in self.pointCloud:
+            self.infomap.set_at((int(point[0]),int(point[1])),(255,0,0))
+ ```
+ **sensor.py**
+ ```
+ import pygame
+import math
+import numpy as np
+
+def uncertainty_add(distance,angle,sigma):
+    mean = np.array([distance, angle])
+    covariance= np.diag(sigma ** 2)
+    distance, angle = np.random.multivariate_normal(mean, covariance)
+    distance= max(distance,0)
+    angle= max(angle,0)
+    return [distance, angle]
+
+
+class LaserSensor:
+    def __init__(self, Range, map, uncertainty):
+        self.Range = Range
+        self.speed = 4
+        self.sigma = np.array([uncertainty[0], uncertainty[1]])
+        self.map = map
+        self.position=(0,0)
+        self.W, self.H = pygame.display.get_surface().get_size()
+        self.sensedObstacles = []
+
+    def distance(self, obstaclePosition):
+        px =(obstaclePosition[0]-self.position[0])**2
+        py = (obstaclePosition[1]-self.position[1])**2
+        return math.sqrt(px+py)
+
+    def sense_obstacles(self):
+        data=[]
+        x1,y1 = self.position[0], self.position[1]
+        for angle in np.linspace(0,2*math.pi,60,False):
+            x2,y2 = (x1 + self.Range * math.cos(angle), y1 - self.Range * math.sin(angle))
+            for i in range(0,100):
+                u = i/100
+                x = int(x2*u + x1 * (1-u))
+                y = int(y2 * u + y1 * (1-u))
+                if 0<x<self.W and 0<y<self.H:
+                    color=self.map.get_at((x,y))
+                    if(color[0], color[1], color[2]) == (0,0,0):
+                        distance=self.distance((x,y))
+                        output = uncertainty_add(distance,angle,self.sigma)
+                        output.append(self.position)
+
+                        data.append(output)
+                        break
+        if len(data)>0:
+            return data
+        else:
+            return False
+```
+
+**Plano real**
 
 <div></div>
 
