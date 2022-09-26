@@ -39,7 +39,7 @@
 
 # Simulador del sensor con Python
 
-![Simulador](images/simulador.gif)
+![Simulador](images/simulator.gif)
 
 **main.py**
 ```
